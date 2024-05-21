@@ -1,0 +1,28 @@
+{
+  "name": "nodejs-training",
+  "version": "1.0.0",
+  "description": "Nodejs Training from udemy.com",
+  "main": "server.js",
+  "scripts": {
+    "test": "test",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lharby/nodejs-training.git"
+  },
+  "keywords": [
+    "Node",
+    "JavaScript",
+    "JS"
+  ],
+  "author": "Luke Harby",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lharby/nodejs-training/issues"
+  },
+  "homepage": "https://github.com/lharby/nodejs-training#readme",
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
