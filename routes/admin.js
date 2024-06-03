@@ -1,8 +1,4 @@
-const path = require('path');
-
 const express = require('express');
-
-const rootDir = require('../utils/path');
 
 const router = express.Router();
 
@@ -10,7 +6,12 @@ const products = [];
 
 // /admin/add-product => GET
 router.get('/add-product', (req, res, next) => {
-    res.render('add-product', {docTitle: 'Add product', path: '/admin/add-product'});
+    res.render('add-product', {
+        docTitle: 'Add product',
+        path: '/admin/add-product',
+        productsCSS: true,
+        activeProduct: true
+    });
 });
 
 // /admin/add-product => POST
