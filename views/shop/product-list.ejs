@@ -1,5 +1,5 @@
-<%- include('includes/header.ejs') %>
-    <%- include('includes/navigation.ejs') %>
+<%- include('../includes/header.ejs') %>
+    <%- include('../includes/navigation.ejs') %>
     <main>
         <% if (products.length > 0) { %>
             <% for (let item of products) { %>
@@ -8,14 +8,17 @@
                     <h1 class="product__title"><%= item.title %></h1>
                 </header>
                 <div class="card__image">
-                    <img src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA0L3B4NDI3NzYyLWltYWdlLWpvYjcwNi5wbmc.png" alt="Book product">
+                    <img src="<%= item.imageURL %>" alt="<%= item.title %>">
                 </div>
                 <div class="card__content">
-                    <h2 class="product__price"><%= item.price %></h2>
+                    <h2 class="product__price">$<%= item.price %></h2>
                     <p class="product__description"><%= item.description %></p>
                 </div>
                 <div class="card__actions">
-                    <button class="btn">Add to cart</button>
+                    <a href="/products/<%= item.id %>" class="btn">Details</a>
+                    <form action="/add-to-cart" method="post">
+                        <button class="btn">Add to cart</button>
+                    </form>
                 </div>
             </article>
             <% } %>
@@ -23,4 +26,4 @@
             <p>No products</p>
         <% } %>
     </main>
-<%- include('includes/footer.ejs') %>
+<%- include('../includes/footer.ejs') %>

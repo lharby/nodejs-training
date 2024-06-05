@@ -14,11 +14,15 @@ const getProductsFromFile = (cb) => {
 };
 
 module.exports = class Product {
-    constructor(title) {
+    constructor(title, imageURL, description, price) {
         this.title = title;
+        this.imageURL = imageURL;
+        this.description = description;
+        this.price = price;
     }
 
     save() {
+        this.id = Math.random().toString();
         getProductsFromFile(products => {
             products.push(this);
             fs.writeFile(filePath, JSON.stringify(products), (err) => {
@@ -30,4 +34,11 @@ module.exports = class Product {
     static fetchAll(cb) {
        getProductsFromFile(cb);
     }
+
+    static findByID(id, cb) {
+        getProductsFromFile(products => {
+            const product = products.find(item => item.id === id);
+            cb(product);
+        });
+    };
 }
