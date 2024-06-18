@@ -13,6 +13,8 @@ body {
 main {
   padding: 1rem;
   margin: auto;
+  display: flex;
+  justify-content: center;
 }
 
 form {
@@ -154,10 +156,14 @@ form {
   padding: 1rem;
 }
 
+.card__content {
+  margin-top: auto;
+}
+
 .card__header h1,
 .card__content h1,
 .card__content h2,
-.card__content p {
+.card__content § {
   margin: 0;
 }
 

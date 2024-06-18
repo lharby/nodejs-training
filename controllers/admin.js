@@ -27,15 +27,39 @@ exports.getEditProduct = (req, res) => {
     });
 };
 
+exports.postEditProduct = (req, res, next) => {
+    const productID = req.body.productID;
+    const updatedTitle = req.body.title;
+    const updatedImageURL = req.body.imageUrl;
+    const updatedDescription = req.body.description;
+    const updatedPrice = req.body.price;
+    const updatedProduct = new Product(
+        productID,
+        updatedTitle,
+        updatedImageURL,
+        updatedDescription,
+        updatedPrice
+    );
+    console.log(updatedProduct);
+    updatedProduct.save();
+    res.redirect('/admin/products');
+}
+
 exports.postAddProduct = (req, res, next) => {
     const title = req.body.title;
-    const imageURL = req.body.imageURL;
+    const imageUrl = req.body.imageUrl;
     const description = req.body.description;
     const price = req.body.price;
-    const product = new Product(title, imageURL, description, price);
+    const product = new Product(null, title, imageUrl, description, price);
     product.save();
     res.redirect('/');
 };
+
+exports.postDeleteProduct = (req, res, next) => {
+    const productID = req.body.productID;
+    Product.deleteById(productID);
+    res.redirect('/admin/products');
+}
 
 exports.getProducts = (req, res, next) => {
     Product.fetchAll((products) => {

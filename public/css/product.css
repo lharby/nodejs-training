@@ -9,6 +9,8 @@
     width: 20rem;
     max-width: 95%;
     margin: 1rem;
+    display: flex;
+    flex-direction: column;
 }
 
 .product__title {
