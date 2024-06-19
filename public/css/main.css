@@ -17,6 +17,11 @@ main {
   justify-content: center;
 }
 
+main.centered {
+  display: block;
+  text-align: left;
+}
+
 form {
   display: inline;
 }
